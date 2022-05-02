@@ -1,0 +1,6 @@
+keras==2.8.0
+matplotlib==3.5.1
+numpy==1.21.5
+scikit_learn==1.0.2
+scikit_learn_intelex==2021.20220215.212715
+tensorflow==2.8.0
