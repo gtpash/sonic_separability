@@ -41,6 +41,19 @@ def load_multimodal_data(data_path):
     return genres, mfcc, features, y
 
 
+def load_mel_data(data_path):
+
+    with open(data_path,"r") as fp:
+        data = json.load(fp)
+    
+    genres = data['mapping']
+    mfcc = np.array(data['mfcc'])
+    mel = np.array(data['mel'])
+    y = np.array(data["labels"])
+    
+    return genres, mfcc, mel, y
+
+
 def plot_history(history):
     
     fig, axs = plt.subplots(2)
@@ -198,3 +211,4 @@ def generate_param_grid(clf):
         }
 
     return param_grid
+
