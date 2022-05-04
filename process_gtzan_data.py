@@ -11,8 +11,8 @@ import json
 import warnings
 import time
 warnings.filterwarnings('ignore')
-DATASET_PATH = “/Users/mattgoldberg/Projects/CSEM/courses/Spring2022/DataSciML_CSE382M/Project/Data/genres_original”
-JSON_PATH = “/Users/mattgoldberg/Projects/CSEM/courses/Spring2022/DataSciML_CSE382M/Project/Data/gtzan_data_mel.json”
+# DATASET_PATH = 
+# JSON_PATH = 
 SAMPLE_RATE = 22050
 DURATION = 30 # measure in seconds
 SAMPLES_PER_TRACK = SAMPLE_RATE * DURATION
@@ -20,10 +20,10 @@ def save_mfcc(dataset_path,json_path,n_mfcc=13,n_fft=2048,hop_length=512,num_seg
     k=0
     # dictionary to store data
     data = {
-        “mapping”:[],
-        “mfcc”:[],
-        “mel”:[],
-        “labels”:[]
+        "mapping":[],
+        "mfcc":[],
+        "mel":[],
+        "labels":[]
         }
     num_samples_per_segment = int(SAMPLES_PER_TRACK / num_segments)
     expected_num_mfcc_vectors_per_segment = math.ceil(num_samples_per_segment / hop_length) # can be a float, round number to higher integer 1.2 -> 2
@@ -61,7 +61,7 @@ def save_mfcc(dataset_path,json_path,n_mfcc=13,n_fft=2048,hop_length=512,num_seg
                         data['labels'].append(i-1)
                         data['mel'].append(S.tolist())
                         #print(“{},segment:{}“.format(file_path,s))
-    with open(json_path,“w”) as fp:
+    with open(json_path,"w") as fp:
         json.dump(data,fp, indent=4)
-if __name__ == “__main__“:
+if __name__ == "__main__":
      save_mfcc(DATASET_PATH,JSON_PATH,num_segments=10)
